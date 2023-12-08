@@ -15,7 +15,7 @@ def selfie_segment():
                 if not success:
                     print("Ignoring empty camera frame.")
                 # If loading a video, use 'break' instead of 'continue'.
-                continue
+                    continue
 
                 # Flip the image horizontally for a later selfie-view display, and convert
                 # the BGR image to RGB.
@@ -39,13 +39,13 @@ def selfie_segment():
                 #   b) Blur the input image by applying image filtering, e.g.,
                 #      bg_image = cv2.GaussianBlur(image,(55,55),0)
                 if bg_image is None:
-                    bg_image = np.zeros(image.shape, dtype=np.uint8)
-                    bg_image[:] = BG_COLOR
-                    output_image = np.where(condition, image, bg_image)
+                 bg_image = np.zeros(image.shape, dtype=np.uint8)
+                 bg_image[:] = BG_COLOR
+                 output_image = np.where(condition, image, bg_image)
 
                 cv2.imshow('MediaPipe Selfie Segmentation', output_image)
                 if cv2.waitKey(5) & 0xFF == 27:
-                    break
+                  break
             cap.release()
             cv2.destroyAllWindows()
 
